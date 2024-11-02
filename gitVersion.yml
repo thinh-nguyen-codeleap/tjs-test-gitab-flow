@@ -19,18 +19,27 @@ strategies:
 - TrackReleaseBranches
 - VersionInBranchName
 branches:
+  
+  feature:
+    mode: ManualDeployment
+    label: '{BranchName}'
+    increment: Inherit
+    regex: ^features?[/-](?<BranchName>.+)
+    source-branches:
+      - main
+    is-source-branch-for: []
+    is-release-branch: false
+    is-main-branch: false
+    pre-release-weight: 0
 
   main:
     mode: ContinuousDelivery
     label: alpha
     increment: Minor
-    prevent-increment:
-      when-current-commit-tagged: false
-      of-merged-branch: false
-    track-merge-target: true
     regex: ^master$|^main$
     source-branches: []
-    is-source-branch-for: []
+    is-source-branch-for:
+      - staging
     tracks-release-branches: true
     is-release-branch: false
     is-main-branch: true
@@ -40,15 +49,11 @@ branches:
     mode: ContinuousDelivery
     label: beta
     increment: Minor
-    prevent-increment:
-      when-current-commit-tagged: false
-      of-merged-branch: false
-    track-merge-target: true
     regex: ^staging$
     source-branches:
-    - main
-    is-source-branch-for: []
-    tracks-release-branches: true
+      - main
+    is-source-branch-for:
+      - production
     is-release-branch: false
     is-main-branch: false
     pre-release-weight: 30000
@@ -57,15 +62,10 @@ branches:
     mode: ContinuousDelivery
     label: ''
     increment: Minor
-    prevent-increment:
-      when-current-commit-tagged: false
-      of-merged-branch: false
-    track-merge-target: false
     regex: ^production$
     source-branches:
     - staging
     is-source-branch-for: []
-    tracks-release-branches: false
     is-release-branch: true
     is-main-branch: false
     pre-release-weight: 60000
@@ -78,13 +78,13 @@ increment: Inherit
 prevent-increment:
   of-merged-branch: false
   when-branch-merged: false
-  when-current-commit-tagged: true
-track-merge-target: false
+  when-current-commit-tagged: false
+track-merge-target: true
 track-merge-message: true
+tracks-release-branches: true
 commit-message-incrementing: Disabled
 regex: ''
 source-branches: []
 is-source-branch-for: []
-tracks-release-branches: false
 is-release-branch: false
 is-main-branch: false
