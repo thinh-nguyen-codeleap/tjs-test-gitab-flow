@@ -1,0 +1,12 @@
+name: "Release to Production"
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
