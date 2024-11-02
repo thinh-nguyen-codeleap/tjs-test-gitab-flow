@@ -9,6 +9,8 @@ branches:
     increment: Inherit
     source-branches:
     - main
+    is-main-branch: false
+    is-release-branch: false
 
   main:
     mode: ContinuousDelivery
@@ -17,6 +19,8 @@ branches:
     increment: Minor
     source-branches:
     - staging
+    is-main-branch: false
+    is-release-branch: false
 
   staging:
     mode: ManualDeployment
@@ -25,6 +29,8 @@ branches:
     increment: Minor
     source-branches:
     - production
+    is-main-branch: false
+    is-release-branch: true
     
   production:
     mode: ManualDeployment
@@ -32,3 +38,5 @@ branches:
     label: ''
     increment: Patch
     source-branches: []
+    is-main-branch: true
+    is-release-branch: false
