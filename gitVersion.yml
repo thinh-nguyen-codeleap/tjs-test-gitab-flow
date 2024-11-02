@@ -56,7 +56,7 @@ branches:
   production:
     mode: ContinuousDelivery
     label: ''
-    increment: Patch
+    increment: Minor
     prevent-increment:
       when-current-commit-tagged: false
       of-merged-branch: false
