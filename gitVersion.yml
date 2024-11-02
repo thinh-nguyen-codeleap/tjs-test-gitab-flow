@@ -8,6 +8,7 @@ branches:
     increment: Minor
     source-branches: [feature]
     label: alpha
+    is-main-branch: true
   staging:
     regex: ^staging$
     increment: Patch
