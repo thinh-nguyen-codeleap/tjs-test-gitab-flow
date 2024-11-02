@@ -81,10 +81,10 @@ prevent-increment:
   when-current-commit-tagged: false
 track-merge-target: true
 track-merge-message: true
-tracks-release-branches: true
-commit-message-incrementing: Disabled
+commit-message-incrementing: Enabled
 regex: ''
 source-branches: []
 is-source-branch-for: []
+tracks-release-branches: false
 is-release-branch: false
 is-main-branch: false
