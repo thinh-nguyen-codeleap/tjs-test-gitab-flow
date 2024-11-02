@@ -1,21 +1,26 @@
-# gitversion.yml
-
-workflow: TrunkBased/preview1
-
+next-version: 0.1.0
+semantic-version-format: Strict
 branches:
+  
   main:
+    mode: ContinuousDelivery
     regex: ^main$
-    increment: Minor
-    source-branches: [feature]
-    label: alpha
-    is-main-branch: true
+    label: 'alpha'
+    increment: Inherit
+    source-branches:
+    - staging
+
   staging:
+    mode: ManualDeployment
     regex: ^staging$
-    increment: Patch
-    source-branches: [main]
-    label: beta
+    label: 'beta'
+    increment: Minor
+    source-branches:
+    - production
+    
   production:
+    mode: ManualDeployment
     regex: ^production$
-    increment: Patch
-    source-branches: [staging]
     label: ''
+    increment: Patch
+    source-branches: []
