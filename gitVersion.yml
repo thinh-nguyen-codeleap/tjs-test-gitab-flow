@@ -1,12 +1,20 @@
-next-version: 0.1.0
+next-version: 1.0.0
 semantic-version-format: Strict
 branches:
-  
+
+  feature:
+    mode: ManualDeployment
+    regex: ^features?[/-](?<BranchName>.+)
+    label: '{BranchName}'
+    increment: Inherit
+    source-branches:
+    - main
+
   main:
     mode: ContinuousDelivery
     regex: ^main$
     label: 'alpha'
-    increment: Inherit
+    increment: Minor
     source-branches:
     - staging
 
