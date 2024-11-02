@@ -1,22 +1,20 @@
-next-version: 1.0.0
+# gitversion.yml
+
+workflow: TrunkBased/preview1
+
 branches:
   main:
-    mode: ContinuousDelivery
-    regex: ^master$|^main$
-    label: alpha
+    regex: ^main$
     increment: Minor
-    is-main-branch: true
-    is-release-branch: false
+    source-branches: [feature]
+    label: alpha
   staging:
     regex: ^staging$
+    increment: Patch
+    source-branches: [main]
     label: beta
-    increment: Minor
   production:
     regex: ^production$
+    increment: Patch
+    source-branches: [staging]
     label: ''
-    increment: Minor
-
-ignore:
-  sha: []
-
-merge-message-formats: {}
