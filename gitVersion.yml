@@ -12,6 +12,7 @@ branches:
     increment: Inherit
     source-branches:
     - main
+    is-source-branch-for: []
     is-main-branch: false
     is-release-branch: false
 
@@ -22,6 +23,7 @@ branches:
     increment: Minor
     source-branches:
     - staging
+    is-source-branch-for: []
     is-main-branch: false
     is-release-branch: false
 
@@ -32,6 +34,7 @@ branches:
     increment: Minor
     source-branches:
     - production
+    is-source-branch-for: []
     is-main-branch: false
     is-release-branch: true
     
@@ -41,5 +44,6 @@ branches:
     label: ''
     increment: Patch
     source-branches: []
+    is-source-branch-for: []
     is-main-branch: true
     is-release-branch: false
