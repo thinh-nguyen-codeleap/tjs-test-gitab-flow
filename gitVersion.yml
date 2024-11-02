@@ -5,6 +5,8 @@ branches:
     regex: ^master$|^main$
     label: alpha
     increment: Minor
+    is-main-branch: true
+    is-release-branch: false
   staging:
     regex: ^staging$
     label: beta
