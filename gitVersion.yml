@@ -47,3 +47,9 @@ branches:
     is-source-branch-for: []
     is-main-branch: true
     is-release-branch: false
+
+
+prevent-increment:
+  of-merged-branch: false
+  when-current-commit-tagged: false
+  when-branch-merged: false
