@@ -3,7 +3,7 @@ next-version: 1.0.0
 branches:
   main:
     mode: ContinuousDeployment
-    label: ''
+    label: 'alpha'
     increment: Minor
     prevent-increment:
       when-current-commit-tagged: false
