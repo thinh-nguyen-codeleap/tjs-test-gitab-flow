@@ -2,7 +2,7 @@ next-version: 1.0.0
 semantic-version-format: Strict
 branches:
   main:
-    mode: ContinuousDeployment
+    mode: ContinuousDelivery
     label: 'alpha'
     increment: Minor
     prevent-increment:
