@@ -7,3 +7,4 @@ branches:
     increment: Minor
     prevent-increment:
       when-current-commit-tagged: false
+    is-main-branch: false
