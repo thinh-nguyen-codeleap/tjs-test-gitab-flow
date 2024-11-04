@@ -1,10 +1,80 @@
+# gitversion.yml for GitVersion 6
+# Configured to support GitLab Flow with Semantic Versioning for the following branches:
+# main, staging, production, bugfix, hotfix
 next-version: 1.0.0
-semantic-version-format: Strict
+mode: ContinuousDeployment
 branches:
   main:
-    mode: ContinuousDelivery
-    label: 'alpha'
+    tag: beta
+    increment: Inherit
+    prevent-increment:
+      of-merged-branch: false
+    track-merge-target: true
+    source-branches:
+      - feature
+      - bugfix
+      - hotfix
+      - staging
+    is-source-branch-for:
+      - staging
+
+  staging:
+    tag: rc
+    increment: Patch
+    prevent-increment:
+      of-merged-branch: false
+    track-merge-target: true
+    source-branches:
+      - main
+      - bugfix
+      - hotfix
+    is-source-branch-for:
+      - main
+      - production
+
+  production:
+    tag: ""
+    increment: Patch
+    prevent-increment:
+      of-merged-branch: false
+    track-merge-target: true
+    source-branches:
+      - staging
+      - hotfix
+    is-source-branch-for: []
+
+  feature:
+    tag: ""
     increment: Minor
     prevent-increment:
-      when-current-commit-tagged: false
-    is-main-branch: false
+      of-merged-branch: false
+    track-merge-target: true
+    source-branches: []
+    is-source-branch-for:
+      - main
+
+  bugfix:
+    tag: ""
+    increment: Patch
+    prevent-increment:
+      of-merged-branch: false
+    track-merge-target: true
+    source-branches: []
+    is-source-branch-for:
+      - main
+      - staging
+
+  hotfix:
+    tag: ""
+    increment: Patch
+    prevent-increment:
+      of-merged-branch: false
+    track-merge-target: true
+    source-branches:
+      - production
+    is-source-branch-for:
+      - production
+      - staging
+
+ignore:
+  sha: []
