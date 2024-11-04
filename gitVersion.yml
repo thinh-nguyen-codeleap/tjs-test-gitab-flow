@@ -26,7 +26,7 @@ branches:
     increment: Inherit
     prevent-increment:
       of-merged-branch: false
-    track-merge-target: true
+    track-merge-target: false
     source-branches:
       - feature
       - bugfix
@@ -61,14 +61,15 @@ branches:
       - staging
       - hotfix
     is-source-branch-for: []
+    is-main-branch: true
 
   feature:
     regex: ^features?[/-](?<BranchName>.+)
-    label: '${BranchName}'
+    label: '{BranchName}'
     increment: Minor
     prevent-increment:
       of-merged-branch: false
-    track-merge-target: true
+    track-merge-target: false
     source-branches: []
     is-source-branch-for:
       - main
@@ -79,7 +80,7 @@ branches:
     increment: Patch
     prevent-increment:
       of-merged-branch: false
-    track-merge-target: true
+    track-merge-target: false
     source-branches: []
     is-source-branch-for:
       - main
@@ -91,7 +92,7 @@ branches:
     increment: Patch
     prevent-increment:
       of-merged-branch: false
-    track-merge-target: true
+    track-merge-target: false
     source-branches:
       - production
     is-source-branch-for:
