@@ -5,7 +5,7 @@ next-version: 1.0.0
 mode: ContinuousDeployment
 branches:
   main:
-    tag: beta
+    label: beta
     increment: Inherit
     prevent-increment:
       of-merged-branch: false
@@ -19,7 +19,7 @@ branches:
       - staging
 
   staging:
-    tag: rc
+    label: rc
     increment: Patch
     prevent-increment:
       of-merged-branch: false
@@ -33,7 +33,7 @@ branches:
       - production
 
   production:
-    tag: ""
+    label: ""
     increment: Patch
     prevent-increment:
       of-merged-branch: false
@@ -44,7 +44,7 @@ branches:
     is-source-branch-for: []
 
   feature:
-    tag: ""
+    label: ""
     increment: Minor
     prevent-increment:
       of-merged-branch: false
@@ -54,7 +54,7 @@ branches:
       - main
 
   bugfix:
-    tag: ""
+    label: ""
     increment: Patch
     prevent-increment:
       of-merged-branch: false
@@ -65,7 +65,7 @@ branches:
       - staging
 
   hotfix:
-    tag: ""
+    label: ""
     increment: Patch
     prevent-increment:
       of-merged-branch: false
