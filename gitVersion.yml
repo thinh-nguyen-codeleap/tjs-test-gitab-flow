@@ -42,7 +42,7 @@ branches:
   staging:
     regex: ^staging$
     label: beta
-    increment: Patch
+    increment: Minor
     source-branches:
       - main
       - bugfix
