@@ -61,6 +61,7 @@ branches:
       - staging
       - hotfix
     is-source-branch-for: []
+    is-main-branch: true
 
   feature:
     regex: ^features?[/-](?<BranchName>.+)
