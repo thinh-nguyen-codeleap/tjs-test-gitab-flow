@@ -1,11 +1,10 @@
 # gitversion.yml for GitVersion 6
 # Configured to support GitLab Flow with Semantic Versioning for the following branches:
 # main, staging, production, bugfix, hotfix
-next-version: 1.0.0
-semantic-version-format: Strict
 assembly-versioning-scheme: MajorMinorPatch
 assembly-file-versioning-scheme: MajorMinorPatch
 label-prefix: '[vV]?'
+semantic-version-format: Strict
 mode: ContinuousDeployment
 branches:
   main:
