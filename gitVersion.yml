@@ -41,7 +41,7 @@ branches:
     increment: Patch
     prevent-increment:
       of-merged-branch: false
-    track-merge-target: true
+    track-merge-target: false
     source-branches:
       - main
       - bugfix
@@ -56,7 +56,7 @@ branches:
     increment: Patch
     prevent-increment:
       of-merged-branch: false
-    track-merge-target: true
+    track-merge-target: false
     source-branches:
       - staging
       - hotfix
