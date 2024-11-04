@@ -24,7 +24,7 @@ prevent-increment:
   when-branch-merged: false
   when-current-commit-tagged: false
 
-track-marge-target: false
+track-merge-target: false
 
 branches:
   main:
