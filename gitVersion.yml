@@ -21,8 +21,7 @@ mode: ContinuousDeployment
 
 prevent-increment:
   of-merged-branch: false
-  of-release-branch: false
-  of-tagged-commit: false
+  when-branch-merged: false
   when-current-commit-tagged: false
 
 track-marge-target: false
