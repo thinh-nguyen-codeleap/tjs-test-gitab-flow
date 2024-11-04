@@ -29,7 +29,7 @@ track-merge-target: false
 branches:
   main:
     regex: ^main$|^master$
-    label: beta
+    label: alpha
     increment: Inherit
     source-branches:
       - feature
@@ -41,7 +41,7 @@ branches:
 
   staging:
     regex: ^staging$
-    label: rc
+    label: beta
     increment: Patch
     source-branches:
       - main
