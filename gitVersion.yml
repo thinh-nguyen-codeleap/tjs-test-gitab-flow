@@ -38,6 +38,7 @@ branches:
     is-source-branch-for:
       - staging
       - feature
+    tracks-release-branches: true
 
   staging:
     regex: ^staging$
@@ -50,6 +51,7 @@ branches:
     is-source-branch-for:
       - main
       - production
+    is-release-branch: true
 
   production:
     regex: ^production$
