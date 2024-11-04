@@ -17,7 +17,7 @@ strategies:
 - TrackReleaseBranches
 - VersionInBranchName
 
-mode: ContinuousDeployment
+mode: ContinuousDelivery
 
 prevent-increment:
   of-merged-branch: false
@@ -34,10 +34,10 @@ branches:
     source-branches:
       - feature
       - bugfix
-      - hotfix
       - staging
     is-source-branch-for:
       - staging
+      - feature
 
   staging:
     regex: ^staging$
