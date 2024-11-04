@@ -3,6 +3,9 @@
 # main, staging, production, bugfix, hotfix
 next-version: 1.0.0
 semantic-version-format: Strict
+assembly-versioning-scheme: MajorMinorPatch
+assembly-file-versioning-scheme: MajorMinorPatch
+label-prefix: '[vV]?'
 mode: ContinuousDeployment
 branches:
   main:
