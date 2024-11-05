@@ -2,11 +2,13 @@ name: "Release to Production"
 
 on:
   release:
-    types: [published]
+    types: [released]
 
 jobs:
-  first-job:
+  production:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+      - name: Echo a message
+        run: echo "I'm running a pipeline that is triggerd by a release!"

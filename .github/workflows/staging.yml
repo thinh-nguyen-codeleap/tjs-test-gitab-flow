@@ -4,8 +4,10 @@ on:
   workflow_dispatch:
 
 jobs:
-  first-job:
+  staging:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+      - name: Echo a message
+        run: echo "I'm running a pipeline that is triggerd manually!"

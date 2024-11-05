@@ -1,94 +1,96 @@
-assembly-versioning-scheme: MajorMinorPatch
-assembly-file-versioning-scheme: MajorMinorPatch
-version-in-branch-pattern: (?<version>[vV]?\d+(\.\d+)?(\.\d+)?).*
-major-version-bump-message: \+semver:\s?(breaking|major)
-minor-version-bump-message: \+semver:\s?(feature|minor)
-patch-version-bump-message: \+semver:\s?(fix|patch)
-no-bump-message: \+semver:\s?(none|skip)
-commit-date-format: yyyy-MM-dd
-merge-message-formats: {}
-update-build-number: true
-semantic-version-format: Strict
-strategies:
-- Fallback
-- ConfiguredNextVersion
-- MergeMessage
-- TaggedCommit
-- TrackReleaseBranches
-- VersionInBranchName
+# assembly-versioning-scheme: MajorMinorPatch
+# assembly-file-versioning-scheme: MajorMinorPatch
+# version-in-branch-pattern: (?<version>[vV]?\d+(\.\d+)?(\.\d+)?).*
+# major-version-bump-message: \+semver:\s?(breaking|major)
+# minor-version-bump-message: \+semver:\s?(feature|minor)
+# patch-version-bump-message: \+semver:\s?(fix|patch)
+# no-bump-message: \+semver:\s?(none|skip)
+# commit-date-format: yyyy-MM-dd
+# merge-message-formats: {}
+# update-build-number: true
+# semantic-version-format: Strict
+# strategies:
+# - Fallback
+# - ConfiguredNextVersion
+# - MergeMessage
+# - TaggedCommit
+# - TrackReleaseBranches
+# - VersionInBranchName
 
-mode: ContinuousDelivery
+# mode: ContinuousDelivery
 
-prevent-increment:
-  of-merged-branch: false
-  when-branch-merged: false
-  when-current-commit-tagged: true
+# prevent-increment:
+#   of-merged-branch: false
+#   when-branch-merged: false
+#   when-current-commit-tagged: true
 
-track-merge-target: false
+# track-merge-target: false
 
-branches:
-  main:
-    regex: ^main$|^master$
-    label: alpha
-    increment: Inherit
-    source-branches:
-      - feature
-      - bugfix
-      - staging
-    is-source-branch-for:
-      - staging
-      - feature
-    tracks-release-branches: true
+# branches:
+#   main:
+#     regex: ^main$|^master$
+#     label: alpha
+#     increment: Inherit
+#     source-branches:
+#       - feature
+#       - bugfix
+#       - staging
+#     is-source-branch-for:
+#       - staging
+#       - feature
+#     tracks-release-branches: true
+#     pre-release-weight: 0
 
-  staging:
-    regex: ^staging$
-    label: beta
-    increment: Minor
-    source-branches:
-      - main
-      - bugfix
-      - hotfix
-    is-source-branch-for:
-      - main
-      - production
-    is-release-branch: true
+#   staging:
+#     regex: ^staging$
+#     label: beta
+#     increment: Minor
+#     source-branches:
+#       - main
+#       - bugfix
+#       - hotfix
+#     is-source-branch-for:
+#       - main
+#       - production
+#     pre-release-weight: 30000
 
-  production:
-    regex: ^production$
-    label: ""
-    increment: Patch
-    source-branches:
-      - staging
-      - hotfix
-    is-source-branch-for: []
-    is-main-branch: true
+#   production:
+#     regex: ^production$
+#     label: ""
+#     increment: Patch
+#     source-branches:
+#       - staging
+#       - hotfix
+#     is-source-branch-for: []
+#     is-main-branch: true
+#     pre-release-weight: 55000
 
-  feature:
-    regex: ^features?[/-](?<BranchName>.+)
-    label: '{BranchName}'
-    increment: Minor
-    source-branches: []
-    is-source-branch-for:
-      - main
+#   feature:
+#     regex: ^features?[/-](?<BranchName>.+)
+#     label: '{BranchName}'
+#     increment: Minor
+#     source-branches: []
+#     is-source-branch-for:
+#       - main
 
-  bugfix:
-    regex: ^bugfix(es)?[/-](?<BranchName>.+)
-    label: ""
-    increment: Patch
-    source-branches: []
-    is-source-branch-for:
-      - main
-      - staging
+#   bugfix:
+#     regex: ^bugfix(es)?[/-](?<BranchName>.+)
+#     label: ""
+#     increment: Patch
+#     source-branches: []
+#     is-source-branch-for:
+#       - main
+#       - staging
 
-  hotfix:
-    regex: ^hotfix(es)?[/-](?<BranchName>.+)
-    label: ""
-    increment: Patch
-    source-branches:
-      - production
-    is-source-branch-for:
-      - production
-      - staging
+#   hotfix:
+#     regex: ^hotfix(es)?[/-](?<BranchName>.+)
+#     label: ""
+#     increment: Patch
+#     source-branches:
+#       - production
+#     is-source-branch-for:
+#       - production
+#       - staging
 
-ignore:
-  sha: []
+# ignore:
+#   sha: []
