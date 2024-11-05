@@ -4,10 +4,15 @@ on:
   workflow_dispatch:
 
 jobs:
-  staging:
+  test:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
       - name: Echo a message
-        run: echo "I'm running a pipeline that is triggerd manually!"
+        run: echo "Testing"
+
+  deploy-staging:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo a message
+        run: echo "Deploying staging"
