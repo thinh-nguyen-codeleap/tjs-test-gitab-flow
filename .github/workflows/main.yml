@@ -6,10 +6,15 @@ on:
       - main
 
 jobs:
-  main-job:
+  test:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
       - name: Echo a message
-        run: echo "I'm running a pipeline that is triggerd by a push event to main!"
+        run: echo "Testing"
+
+  deploy-test:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo a message
+        run: echo "Deploying test environment"
